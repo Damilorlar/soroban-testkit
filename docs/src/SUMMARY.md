@@ -16,6 +16,7 @@
 - [Testing Patterns](./guides/testing-patterns.md)
 - [Budget-Aware Testing](./guides/budget-testing.md)
 - [Property Testing](./guides/property-testing.md)
+- [Multisig Vault Example](./guides/multisig-vault-example.md)
 
 # Contributing
 - [Contributing Guide](./contributing.md)

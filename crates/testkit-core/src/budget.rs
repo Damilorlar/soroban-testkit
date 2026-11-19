@@ -1,5 +1,6 @@
 use soroban_env_host::budget::Budget;
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct BudgetSnapshot {
     pub cpu_insns: u64,
     pub mem_bytes: u64,

@@ -15,6 +15,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `testkit-assert`: AuthMatcher for authorization verification
 - `testkit-fixtures`: TestContext and TestContextBuilder
 - `testkit-generators`: proptest strategies for token amounts, ledger sequences, timestamps
+- `testkit-generators`: EventFuzzHarness with field-drop, type-shift, byte-truncate and sign-flip mutations plus shrinking
+- `testkit-fixtures`: NetworkProfile presets (Local, Testnet, Mainnet) for host budgets and ledger parameters
+- `testkit-core`: NamespaceAuditor for storage key collision and namespace isolation checks
+- `examples/multisig_vault`: time-delayed M-of-N treasury vault with a 50+ test worked example
 - mdBook documentation site with guides and API references
 - CI workflow (fmt, clippy, test)
 - Docs deployment workflow via GitHub Pages

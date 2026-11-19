@@ -16,9 +16,9 @@ fn test_budget_regression() {
     let env = Env::default();
     env.mock_all_auths();
 
-    let before = BudgetSnapshot::capture(&env.cost_estimate().budget());
+    let before = BudgetSnapshot::capture(&env.host().budget_cloned());
     // ... invoke function
-    let after = BudgetSnapshot::capture(&env.cost_estimate().budget());
+    let after = BudgetSnapshot::capture(&env.host().budget_cloned());
     let cost = before.diff(&after);
 
     // Set thresholds based on your contract's SLA

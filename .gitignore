@@ -9,3 +9,5 @@ Cargo.lock
 *.iml
 docs/book/
 site/
+
+**/test_snapshots/
