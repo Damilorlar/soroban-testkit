@@ -45,3 +45,30 @@ for entry in &entries {
     println!("{:?} storage: {}", entry.tier, entry.key);
 }
 ```
+
+## Storage Namespace Auditing
+
+When contracts compose multiple modules or traits, bare symbol keys such as
+`"admin"` can collide and silently overwrite another module's state.
+`NamespaceAuditor` records keys per module and reports collisions and
+un-namespaced keys.
+
+```rust
+use testkit_core::namespace_auditor::NamespaceAuditor;
+
+let mut auditor = NamespaceAuditor::new(&env, &contract_id);
+auditor
+    .record("ownable", "ownable::admin")
+    .record("pausable", "pausable::paused");
+
+let report = auditor.audit();
+assert!(!report.has_collisions(), "Storage collision: {:?}", report.collisions());
+println!("{report}");
+```
+
+Keys are considered namespaced when they contain a namespace separator
+(`::`, `:`, `.`, `/`) such as `DataKey::Admin` or `ownable:admin`. Bare keys
+like `admin` are flagged as collision risks. A collision is reported when the
+same key is written by two independent modules. `report.modules()` returns the
+full key map, while `NamespaceAuditor::from_entries` infers module ownership
+from a `StorageEntry` snapshot.

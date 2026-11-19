@@ -6,7 +6,7 @@ pub struct StorageEntry {
     pub tier: StorageTier,
 }
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub enum StorageTier {
     Instance,
     Persistent,
