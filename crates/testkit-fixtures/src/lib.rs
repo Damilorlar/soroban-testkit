@@ -1,4 +1,7 @@
 pub mod builder;
+pub mod profiles;
+
+pub use profiles::NetworkProfile;
 
 use soroban_sdk::testutils::Address as _;
 use soroban_sdk::{Address, Env};
